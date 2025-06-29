@@ -1,17 +1,18 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+
 import stdlib.StdOut;
 import stdlib.StdRandom;
 
-public class Student {
+public class Instructor {
     private int id;
     private int courses;
     //private int coursestaken;
     private double grade;
     private String name;
 
-    public Student(String name) { //constructor with name as an input
+    public Instructor(String name) { //constructor with name as an input
         this.name = name;
         grade = 0.0;
         id = 0;
@@ -20,9 +21,6 @@ public class Student {
     }
 
 
-    public double getGPA() {
-        return this.grade;
-    }
 
     public void setID(int id) {
         this.id = id;
@@ -56,44 +54,5 @@ public class Student {
         return idString;
     }
 
-    public double addGrade(double grade) {
-        if (grade > 4.0 || grade < 0.0){// grade ranges between 0 and 4
-            throw new IllegalArgumentException("Illegal course grade");
-        }
-        courses++;
-        this.grade = (this.grade + grade)/courses;
-        return this.grade;
-    }
-
-    //tests  for  the program
-    public static void main(String[] args) {
-        Student q = new Student("Test Student");
-        String newName = "2nd test name";
-        double gpa1 = 3.0;
-        double gpa2 = 2.3;
-        int id1 = 319;
-        int id2 = 4502;
-
-
-        q.addGrade(gpa1);
-        StdOut.println("gpa 1      = " + q.getGPA());
-        q.addGrade(gpa2);
-        StdOut.println("gpa 2      = " + q.getGPA());
-
-
-
-        q.setID(id1);
-        StdOut.println("id1  = " + q.getIDString());
-        StdOut.println("id no string  = " + q.getID());
-
-        q.setID(id2);
-        StdOut.println("id2  = " + q.getIDString());
-
-        StdOut.println("Name is " + q.getNAME());
-
-        q.setName(newName);
-        StdOut.println("Name is " + q.getNAME());
-
-    }
 
 }
