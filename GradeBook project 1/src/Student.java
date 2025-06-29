@@ -34,10 +34,30 @@ public class Student {
         return s.name;
     }
     public int getID(Student s) {
+        int length = String.valueOf(s.id).length();
+        String idString = "";
+        if (length>4) {
+            throw new IllegalArgumentException("Max ID length is 4");// this can be changed later
+        }
         return s.id;
     }
 
+    public String getIDString(Student s) {
+        int length = String.valueOf(s.id).length();
+        String idString = "";
+        if (length>4) {
+            throw new IllegalArgumentException("Max ID length is 4");// this can be changed later
+        }
+        for (int i = 0; i < (4-length); i++) {// for loop to add 0s if number is less than 1000
+            idString = idString + "0";}
+        idString = idString + String.valueOf(s.id);
+        return idString;
+    }
+
     public double addGrade(Student s, double grade) {
+        if (grade > 4.0 || grade < 0.0){// grade ranges between 0 and 4
+            throw new IllegalArgumentException("Illegal course grade");
+        }
         courses++;
         s.grade = (s.grade + grade)/courses;
         return s.grade;
