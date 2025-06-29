@@ -78,9 +78,7 @@ public class Student {
         q.addGrade(gpa1);
         StdOut.println("gpa 1      = " + q.getGPA());
         q.addGrade(gpa2);
-        StdOut.println("gpa 2      = " + q.getGPA());
-
-
+        StdOut.println("gpa 2      = " + q.getGPA());// should be 2.65
 
         q.setID(id1);
         StdOut.println("id1  = " + q.getIDString());
