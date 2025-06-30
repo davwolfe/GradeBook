@@ -7,7 +7,7 @@ import stdlib.StdRandom;
 public class Student {
     private int id;
     private int courses;
-    //private int coursestaken;
+    //private int current; // current courses
     private double grade;
     private String name;
 
