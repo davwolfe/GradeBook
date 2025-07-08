@@ -9,6 +9,9 @@ public class Course {
     private int id;
     private int size;
     private Student[] enrolled;
+    private double[] grades;
+    private double gradesAvg;
+    private double gradesTotal;
     private Instructor prof;
     //private int courses;
     //private int coursestaken;
@@ -21,6 +24,9 @@ public class Course {
         id = 0;
         size = 0;
         enrolled = new Student[30];// max class size 30
+        grades = new double[30];// max class size 30
+        gradesAvg = 0;
+        gradesTotal = 0;
         //coursestaken = 0;
     }
 
@@ -40,6 +46,14 @@ public class Course {
 
     public int getSIZE() {
         return this.size;
+    }
+
+    public double getAVG() {
+        return this.gradesAvg;
+    }
+
+    public String getPROF() {
+        return this.prof.getNAME();
     }
 
     public int getCREDIT() {
@@ -81,7 +95,24 @@ public class Course {
             throw new IllegalArgumentException("Class is full");// this can be changed later
         }
         enrolled[size]= s;
+
         size++;
+        setGRADE(size-1,0.0);
+    }
+
+    public void setGRADE(int sid, double grad) {
+        if (sid<=size && sid>=0) {
+            throw new IllegalArgumentException("ID more than people in course");// this can be changed later
+        }
+        this.grades[sid] = grad;
+        gradesTotal = gradesTotal + grad;
+        this.gradesAvg = gradesTotal/size;
+    }
+
+    public void listGrades() {// prints out all enrolled students' names
+        for (int i = 0; i <= (size); i++) {// for loop to add 0s if number is less than 1000
+            //enrolled[i].getNAME();
+            StdOut.println(grades[i]);}
     }
 
 
